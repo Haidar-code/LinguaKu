@@ -1,1 +1,486 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinguaLeap - Belajar Bahasa Inggris</title>
+</head>
+<body>
 
+  <!-- ========== HEADER / NAVBAR ========== -->
+  <header id="main-header">
+    <div class="logo">
+      <span class="logo-icon">🦋</span>
+      <span class="logo-text">LinguaLeap</span>
+    </div>
+
+    <nav id="main-nav">
+      <ul>
+        <li><a href="#" class="nav-link active" data-target="home">Beranda</a></li>
+        <li><a href="#" class="nav-link" data-target="vocabulary">Kosakata</a></li>
+        <li><a href="#" class="nav-link" data-target="grammar">Grammar</a></li>
+        <li><a href="#" class="nav-link" data-target="quiz">Kuis</a></li>
+        <li><a href="#" class="nav-link" data-target="ielts">IELTS Prep</a></li>
+        <li><a href="#" class="nav-link" data-target="progress">Progress</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button id="streak-badge" class="badge">🔥 <span id="streak-count">12</span> hari</button>
+      <div class="user-avatar">
+        <img src="https://via.placeholder.com/40" alt="User Avatar">
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== MAIN CONTAINER ========== -->
+  <main id="app-content">
+
+    <!-- ===== SECTION: HOME / DASHBOARD ===== -->
+    <section id="home" class="page-section active">
+
+      <div class="hero">
+        <h1>Selamat Datang Kembali, <span id="user-name">Alex</span>! 👋</h1>
+        <p class="hero-subtitle">Yuk lanjutkan progress belajar bahasa Inggrismu hari ini.</p>
+        <button class="btn btn-primary" id="continue-learning-btn">Lanjutkan Belajar</button>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-icon">📚</span>
+          <span class="stat-value">248</span>
+          <span class="stat-label">Kata Dikuasai</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-icon">🎯</span>
+          <span class="stat-value">87%</span>
+          <span class="stat-label">Akurasi Kuis</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-icon">⏱️</span>
+          <span class="stat-value">42</span>
+          <span class="stat-label">Jam Belajar</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-icon">🏆</span>
+          <span class="stat-value">Band 7.5</span>
+          <span class="stat-label">IELTS Target</span>
+        </div>
+      </div>
+
+      <div class="daily-goal">
+        <div class="daily-goal-header">
+          <h3>Target Harian</h3>
+          <span class="daily-goal-progress-text">3/5 aktivitas selesai</span>
+        </div>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" style="width: 60%;"></div>
+        </div>
+      </div>
+
+      <h2 class="section-title">Lanjutkan Pembelajaran</h2>
+      <div class="card-grid">
+        <div class="lesson-card">
+          <div class="lesson-thumbnail">📖</div>
+          <div class="lesson-info">
+            <h4>Present Perfect Tense</h4>
+            <p>Grammar &middot; Lesson 4/8</p>
+            <div class="mini-progress-track">
+              <div class="mini-progress-fill" style="width: 45%;"></div>
+            </div>
+          </div>
+          <button class="btn btn-secondary">Lanjut</button>
+        </div>
+
+        <div class="lesson-card">
+          <div class="lesson-thumbnail">🗣️</div>
+          <div class="lesson-info">
+            <h4>Daily Conversation: At the Airport</h4>
+            <p>Speaking &middot; Lesson 2/6</p>
+            <div class="mini-progress-track">
+              <div class="mini-progress-fill" style="width: 30%;"></div>
+            </div>
+          </div>
+          <button class="btn btn-secondary">Lanjut</button>
+        </div>
+
+        <div class="lesson-card">
+          <div class="lesson-thumbnail">✍️</div>
+          <div class="lesson-info">
+            <h4>IELTS Writing Task 2</h4>
+            <p>Writing &middot; Lesson 1/5</p>
+            <div class="mini-progress-track">
+              <div class="mini-progress-fill" style="width: 15%;"></div>
+            </div>
+          </div>
+          <button class="btn btn-secondary">Lanjut</button>
+        </div>
+      </div>
+
+      <h2 class="section-title">Kata Hari Ini</h2>
+      <div class="word-of-the-day-card">
+        <div class="wotd-word">
+          <h3>Meticulous</h3>
+          <span class="wotd-pronunciation">/məˈtɪkjʊləs/</span>
+          <span class="wotd-type">adjective</span>
+        </div>
+        <p class="wotd-meaning">Sangat teliti dan hati-hati terhadap detail.</p>
+        <p class="wotd-example">"She was meticulous in checking every sentence before submitting."</p>
+        <button class="btn btn-outline" id="save-word-btn">+ Simpan ke Koleksi</button>
+      </div>
+
+    </section>
+
+    <!-- ===== SECTION: VOCABULARY ===== -->
+    <section id="vocabulary" class="page-section">
+      <div class="page-header">
+        <h1>Kosakata</h1>
+        <button class="btn btn-primary">+ Tambah Kata Baru</button>
+      </div>
+
+      <div class="search-filter-bar">
+        <input type="text" id="vocab-search" placeholder="Cari kata...">
+        <select id="vocab-filter-level">
+          <option value="all">Semua Level</option>
+          <option value="beginner">Beginner</option>
+          <option value="intermediate">Intermediate</option>
+          <option value="advanced">Advanced</option>
+        </select>
+        <select id="vocab-filter-category">
+          <option value="all">Semua Kategori</option>
+          <option value="daily">Daily Life</option>
+          <option value="business">Business</option>
+          <option value="academic">Academic</option>
+        </select>
+      </div>
+
+      <div class="flashcard-grid" id="vocab-list">
+        <div class="flashcard">
+          <div class="flashcard-front">
+            <span class="level-tag beginner">Beginner</span>
+            <h4>Ambitious</h4>
+            <span class="phonetic">/æmˈbɪʃəs/</span>
+          </div>
+          <div class="flashcard-back">
+            <p>Memiliki ambisi/hasrat kuat untuk sukses.</p>
+            <button class="btn-icon" title="Dengarkan">🔊</button>
+          </div>
+        </div>
+
+        <div class="flashcard">
+          <div class="flashcard-front">
+            <span class="level-tag intermediate">Intermediate</span>
+            <h4>Resilient</h4>
+            <span class="phonetic">/rɪˈzɪliənt/</span>
+          </div>
+          <div class="flashcard-back">
+            <p>Mampu pulih dengan cepat dari kesulitan.</p>
+            <button class="btn-icon" title="Dengarkan">🔊</button>
+          </div>
+        </div>
+
+        <div class="flashcard">
+          <div class="flashcard-front">
+            <span class="level-tag advanced">Advanced</span>
+            <h4>Ubiquitous</h4>
+            <span class="phonetic">/juːˈbɪkwɪtəs/</span>
+          </div>
+          <div class="flashcard-back">
+            <p>Ada di mana-mana, sangat umum ditemukan.</p>
+            <button class="btn-icon" title="Dengarkan">🔊</button>
+          </div>
+        </div>
+
+        <div class="flashcard">
+          <div class="flashcard-front">
+            <span class="level-tag beginner">Beginner</span>
+            <h4>Grateful</h4>
+            <span class="phonetic">/ˈɡreɪtfəl/</span>
+          </div>
+          <div class="flashcard-back">
+            <p>Merasa atau menunjukkan rasa terima kasih.</p>
+            <button class="btn-icon" title="Dengarkan">🔊</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION: GRAMMAR ===== -->
+    <section id="grammar" class="page-section">
+      <div class="page-header">
+        <h1>Grammar</h1>
+      </div>
+
+      <div class="grammar-topic-grid">
+        <div class="grammar-topic-card">
+          <span class="grammar-icon">⏳</span>
+          <h4>Tenses</h4>
+          <p>12 sub-topik &middot; 65% selesai</p>
+          <div class="mini-progress-track"><div class="mini-progress-fill" style="width: 65%;"></div></div>
+        </div>
+        <div class="grammar-topic-card">
+          <span class="grammar-icon">🔗</span>
+          <h4>Conditional Sentences</h4>
+          <p>4 sub-topik &middot; 20% selesai</p>
+          <div class="mini-progress-track"><div class="mini-progress-fill" style="width: 20%;"></div></div>
+        </div>
+        <div class="grammar-topic-card">
+          <span class="grammar-icon">🧩</span>
+          <h4>Passive Voice</h4>
+          <p>6 sub-topik &middot; 0% selesai</p>
+          <div class="mini-progress-track"><div class="mini-progress-fill" style="width: 0%;"></div></div>
+        </div>
+        <div class="grammar-topic-card">
+          <span class="grammar-icon">📝</span>
+          <h4>Reported Speech</h4>
+          <p>5 sub-topik &middot; 40% selesai</p>
+          <div class="mini-progress-track"><div class="mini-progress-fill" style="width: 40%;"></div></div>
+        </div>
+      </div>
+
+      <div class="grammar-detail-panel">
+        <h3>Present Perfect Tense</h3>
+        <p class="grammar-rule">Digunakan untuk menyatakan aksi yang terjadi di masa lalu tapi masih relevan dengan sekarang.</p>
+        <div class="grammar-formula">Subject + have/has + Past Participle</div>
+        <div class="grammar-example-list">
+          <p>✅ <strong>I have finished</strong> my homework.</p>
+          <p>✅ <strong>She has visited</strong> Japan three times.</p>
+        </div>
+        <button class="btn btn-primary">Latihan Topik Ini</button>
+      </div>
+    </section>
+
+    <!-- ===== SECTION: QUIZ ===== -->
+    <section id="quiz" class="page-section">
+      <div class="page-header">
+        <h1>Kuis</h1>
+      </div>
+
+      <div class="quiz-container">
+        <div class="quiz-progress-header">
+          <span>Pertanyaan 3 dari 10</span>
+          <div class="progress-bar-track">
+            <div class="progress-bar-fill" style="width: 30%;"></div>
+          </div>
+        </div>
+
+        <div class="quiz-question-card">
+          <h3 class="quiz-question">Pilih kalimat yang menggunakan <em>Present Perfect Tense</em> dengan benar:</h3>
+
+          <div class="quiz-options">
+            <button class="quiz-option" data-answer="a">
+              <span class="option-letter">A</span>
+              <span class="option-text">She go to school yesterday.</span>
+            </button>
+            <button class="quiz-option" data-answer="b">
+              <span class="option-letter">B</span>
+              <span class="option-text">She has gone to school already.</span>
+            </button>
+            <button class="quiz-option" data-answer="c">
+              <span class="option-letter">C</span>
+              <span class="option-text">She is going to school tomorrow.</span>
+            </button>
+            <button class="quiz-option" data-answer="d">
+              <span class="option-letter">D</span>
+              <span class="option-text">She will goes to school.</span>
+            </button>
+          </div>
+
+          <div class="quiz-actions">
+            <button class="btn btn-outline" id="skip-question-btn">Lewati</button>
+            <button class="btn btn-primary" id="submit-answer-btn">Submit Jawaban</button>
+          </div>
+        </div>
+
+        <div class="quiz-feedback" id="quiz-feedback" style="display:none;">
+          <p class="feedback-title">✅ Benar!</p>
+          <p class="feedback-explanation">Jawaban B tepat karena menggunakan struktur "has + past participle" untuk aksi yang sudah selesai dan relevan dengan sekarang.</p>
+          <button class="btn btn-primary" id="next-question-btn">Pertanyaan Selanjutnya</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION: IELTS PREP ===== -->
+    <section id="ielts" class="page-section">
+      <div class="page-header">
+        <h1>IELTS Preparation</h1>
+      </div>
+
+      <div class="ielts-tabs">
+        <button class="ielts-tab active" data-skill="writing">Writing</button>
+        <button class="ielts-tab" data-skill="reading">Reading</button>
+        <button class="ielts-tab" data-skill="listening">Listening</button>
+        <button class="ielts-tab" data-skill="speaking">Speaking</button>
+      </div>
+
+      <div class="ielts-panel">
+        <div class="band-score-card">
+          <h3>Target Band Score</h3>
+          <div class="band-score-display">8.0</div>
+          <p>Writing Task 1 &amp; Task 2</p>
+        </div>
+
+        <div class="ielts-task-list">
+          <div class="ielts-task-item">
+            <span class="task-badge task1">Task 1</span>
+            <div class="task-info">
+              <h4>Line Graph: Internet Usage 2000-2020</h4>
+              <p>20 menit &middot; Belum dikerjakan</p>
+            </div>
+            <button class="btn btn-secondary">Mulai</button>
+          </div>
+          <div class="ielts-task-item">
+            <span class="task-badge task2">Task 2</span>
+            <div class="task-info">
+              <h4>Essay: Technology and Education</h4>
+              <p>40 menit &middot; Draft tersimpan</p>
+            </div>
+            <button class="btn btn-secondary">Lanjutkan</button>
+          </div>
+        </div>
+
+        <div class="band-descriptor-box">
+          <h4>Band Descriptor Referensi</h4>
+          <ul class="band-descriptor-list">
+            <li><strong>Band 9:</strong> Expert user, fully operational command.</li>
+            <li><strong>Band 8:</strong> Very good user, occasional inaccuracies.</li>
+            <li><strong>Band 7:</strong> Good user, operational command with occasional errors.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION: PROGRESS ===== -->
+    <section id="progress" class="page-section">
+      <div class="page-header">
+        <h1>Progress Belajar</h1>
+      </div>
+
+      <div class="progress-overview-grid">
+        <div class="progress-chart-placeholder">
+          <h4>Aktivitas Mingguan</h4>
+          <div class="bar-chart-mock">
+            <div class="bar-chart-column"><div class="bar" style="height: 40%;"></div><span>Sen</span></div>
+            <div class="bar-chart-column"><div class="bar" style="height: 70%;"></div><span>Sel</span></div>
+            <div class="bar-chart-column"><div class="bar" style="height: 55%;"></div><span>Rab</span></div>
+            <div class="bar-chart-column"><div class="bar" style="height: 90%;"></div><span>Kam</span></div>
+            <div class="bar-chart-column"><div class="bar" style="height: 30%;"></div><span>Jum</span></div>
+            <div class="bar-chart-column"><div class="bar" style="height: 60%;"></div><span>Sab</span></div>
+            <div class="bar-chart-column"><div class="bar" style="height: 20%;"></div><span>Min</span></div>
+          </div>
+        </div>
+
+        <div class="skill-breakdown">
+          <h4>Penguasaan per Skill</h4>
+          <div class="skill-row">
+            <span>Vocabulary</span>
+            <div class="progress-bar-track"><div class="progress-bar-fill" style="width: 80%;"></div></div>
+            <span>80%</span>
+          </div>
+          <div class="skill-row">
+            <span>Grammar</span>
+            <div class="progress-bar-track"><div class="progress-bar-fill" style="width: 65%;"></div></div>
+            <span>65%</span>
+          </div>
+          <div class="skill-row">
+            <span>Listening</span>
+            <div class="progress-bar-track"><div class="progress-bar-fill" style="width: 50%;"></div></div>
+            <span>50%</span>
+          </div>
+          <div class="skill-row">
+            <span>Writing</span>
+            <div class="progress-bar-track"><div class="progress-bar-fill" style="width: 45%;"></div></div>
+            <span>45%</span>
+          </div>
+          <div class="skill-row">
+            <span>Speaking</span>
+            <div class="progress-bar-track"><div class="progress-bar-fill" style="width: 35%;"></div></div>
+            <span>35%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="achievements-section">
+        <h4>Achievements</h4>
+        <div class="achievement-grid">
+          <div class="achievement-badge earned">🔥<span>7-Day Streak</span></div>
+          <div class="achievement-badge earned">📖<span>100 Kata</span></div>
+          <div class="achievement-badge earned">🎯<span>Quiz Master</span></div>
+          <div class="achievement-badge locked">✍️<span>Writing Pro</span></div>
+          <div class="achievement-badge locked">🗣️<span>Speaking Star</span></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer id="main-footer">
+    <p>&copy; 2026 LinguaLeap. Dibuat untuk membantu belajar bahasa Inggris.</p>
+  </footer>
+
+  <!-- ========== SCRIPT: NAVIGASI ANTAR SECTION ========== -->
+  <script>
+    // Navigasi antar "halaman" (section) tanpa reload
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('.page-section');
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = link.getAttribute('data-target');
+
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+
+        sections.forEach(sec => {
+          sec.classList.toggle('active', sec.id === target);
+        });
+
+        window.scrollTo(0, 0);
+      });
+    });
+
+    // Contoh interaksi sederhana: pilih jawaban kuis
+    const quizOptions = document.querySelectorAll('.quiz-option');
+    const submitBtn = document.getElementById('submit-answer-btn');
+    const feedbackBox = document.getElementById('quiz-feedback');
+    let selectedOption = null;
+
+    quizOptions.forEach(opt => {
+      opt.addEventListener('click', () => {
+        quizOptions.forEach(o => o.classList.remove('selected'));
+        opt.classList.add('selected');
+        selectedOption = opt;
+      });
+    });
+
+    if (submitBtn) {
+      submitBtn.addEventListener('click', () => {
+        if (!selectedOption) return;
+        feedbackBox.style.display = 'block';
+      });
+    }
+
+    const nextBtn = document.getElementById('next-question-btn');
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        feedbackBox.style.display = 'none';
+        quizOptions.forEach(o => o.classList.remove('selected'));
+        selectedOption = null;
+      });
+    }
+
+    // Tab IELTS skill switch (placeholder logic)
+    const ieltsTabs = document.querySelectorAll('.ielts-tab');
+    ieltsTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        ieltsTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        // TODO: ganti konten .ielts-panel sesuai skill yang dipilih
+      });
+    });
+  </script>
+
+</body>
+</html>
